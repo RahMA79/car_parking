@@ -1,6 +1,5 @@
-import 'package:car_parking/Components/GridView.dart';
+import 'package:car_parking/Components/CustomContainer.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class ControlPage extends StatefulWidget {
   const ControlPage({super.key});
@@ -13,9 +12,34 @@ class _ControlPageState extends State<ControlPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text(
+          'Control Page',
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
+      body: const Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Expanded(child: CustomGridView()),
+          CustomContainer(
+            text: 'Entry Gate',
+            icon: Icon(Icons.door_front_door_rounded),
+            index: 0,
+          ),
+          CustomContainer(
+            text: 'Fire Alarm',
+            icon: Icon(Icons.fireplace_rounded),
+            index: 1,
+          ),
+          CustomContainer(
+            text: 'Water',
+            icon: Icon(Icons.water_drop_outlined),
+            index: 2,
+          ),
         ],
       ),
     );
